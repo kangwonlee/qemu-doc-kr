@@ -39,8 +39,12 @@ There is a full
 which can be stacked across multiple layers supporting redirection,
 networking, snapshots and migration support.
 
+[`Live Block Operations`](../interop/live-block-operations.md) 로 여러 계층에 걸쳐 복잡한 저장소 연결 구조를 구성할 수 있습니다. 이러한  계층 구조는 리다이렉션, 네트워킹, 스냅샷 및 마이그레이션 지원을 지원합니다.
+
 The flexible `chardev` system allows for handling IO from character like
 devices using stdio, files, unix sockets and TCP networking.
+
+`chardev` 시스템은 표준입출력, 파일, 유닉스 소켓과 TCP 네트워킹을 사용하여 문자와 비슷한 다양한 입출력을 다룰 수 있는 유연성을 갖추고 있습니다.
 
 QEMU provides a number of management interfaces including a line based
 `Human Monitor Protocol (HMP)<QEMU monitor>`{.interpreted-text
