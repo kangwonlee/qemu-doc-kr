@@ -1,21 +1,22 @@
-# Introduction
+# Introduction<br>소개
 
-## Virtualisation Accelerators
+## Virtualisation Accelerators<br>가상화 가속기
 
 QEMU\'s system emulation provides a virtual model of a machine (CPU,
 memory and emulated devices) to run a guest OS. It supports a number of
 hypervisors (known as accelerators) as well as a JIT known as the Tiny
-Code Generator (TCG) capable of emulating many CPUs.
+Code Generator (TCG) capable of emulating many CPUs.<br>
+QEMU의 시스템 emulation 은 어떤 컴퓨터(CPU, 메모리, 에뮬레이트 되는 디바이스)의 가상 모델을 제공하여 게스트 OS를 실행시킵니다. 이는 여러 하이퍼바이저 (가속기라고도 합니다)와 많은 CPU를 에뮬레이크 할 수 있는 JIT (TCG Tiny Code Generator 작은 코드 생성기) 를 지원합니다.
 
-  Accelerator                             Host OS                              Host Architectures
-  --------------------------------------- ------------------------------------ --------------------------------------------------
-  KVM                                     Linux                                Arm (64 bit only), MIPS, PPC, RISC-V, s390x, x86
-  Xen                                     Linux (as dom0)                      Arm, x86
-  Intel HAXM (hax)                        Linux, Windows                       x86
-  Hypervisor Framework (hvf)              MacOS                                x86 (64 bit only), Arm (64 bit only)
-  Windows Hypervisor Platform (whpx)      Windows                              x86
-  NetBSD Virtual Machine Monitor (nvmm)   NetBSD                               x86
-  Tiny Code Generator (tcg)               Linux, other POSIX, Windows, MacOS   Arm, x86, Loongarch64, MIPS, PPC, s390x, Sparc64
+  Accelerator<br>가속기                    |   Host OS<br>호스트 OS               |               Host Architectures<br>호스트 아키텍춰
+  ---------------------------------------|------------------------------------ |--------------------------------------------------
+  KVM                                    | Linux                               | Arm (64 bit only), MIPS, PPC, RISC-V, s390x, x86
+  Xen                                    | Linux (as dom0)                     | Arm, x86
+  Intel HAXM (hax)                       | Linux, Windows                      | x86
+  Hypervisor Framework (hvf)             | MacOS                               | x86 (64 bit only), Arm (64 bit only)
+  Windows Hypervisor Platform (whpx)     | Windows                             | x86
+  NetBSD Virtual Machine Monitor (nvmm)  | NetBSD                              | x86
+  Tiny Code Generator (tcg)              | Linux, other POSIX, Windows, MacOS  | Arm, x86, Loongarch64, MIPS, PPC, s390x, Sparc64
 
   : Supported Accelerators
 
