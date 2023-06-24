@@ -47,10 +47,9 @@ devices using stdio, files, unix sockets and TCP networking.
 `chardev` 시스템은 표준입출력, 파일, 유닉스 소켓과 TCP 네트워킹을 사용하여 문자와 비슷한 다양한 입출력을 다룰 수 있는 유연성을 갖추고 있습니다.
 
 QEMU provides a number of management interfaces including a line based
-`Human Monitor Protocol (HMP)<QEMU monitor>`{.interpreted-text
-role="ref"} that allows you to dynamically add and remove devices as
+[`Human Monitor Protocol (HMP)`](monitor.md) that allows you to dynamically add and remove devices as
 well as introspect the system state. The
-`QEMU Monitor Protocol<QMP Ref>`{.interpreted-text role="ref"} (QMP) is
+[`QEMU Monitor Protocol`](../interop/qemu-qmp-ref.md) is
 a well defined, versioned, machine usable API that presents a rich
 interface to other tools to create, control and manage Virtual Machines.
 This is the interface used by higher level tools interfaces such as
