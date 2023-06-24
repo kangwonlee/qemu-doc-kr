@@ -57,8 +57,10 @@ This is the interface used by higher level tools interfaces such as
 framework](https://libvirt.org).
 
 For the common accelerators QEMU, supported debugging with its
-`gdbstub<GDB usage>`{.interpreted-text role="ref"} which allows users to
+[`gdbstub`](gdb.md) which allows users to
 connect GDB and debug system software images.
+
+일반적인 가속기에 대해 QEMU 는 [`gdbstub`](gdb.md) 을 지원합니다. 이를 사용하여 사용자가 시스템 소프트웨어 이미지를 GDB와 연결하고 디버깅 할 수 있습니다.
 
 ## Running
 
