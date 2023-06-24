@@ -35,8 +35,7 @@ details.
 시스템 에뮬레이션은 너른 범위의 디바이스 모델을 제공, 여러분들이 여러분들의 컴퓨터에 추가 하고 싶을 다양한 하드웨어 요소를 에뮬레이트 합니다.  이는 방대한 VirtIO 가상입출력 장치를 포함합니다. 이는 특히 가상화 환경에서 효율적인 작동을 위해 튜닝되었습니다. 디바이스 에뮬레이션의 일부는 메인 QEMU 프로세스에서 대신 vhost-user (VirtIO) 또는 [`Multi-process QEMU`](multi-process.md) 를 사용할 수 있습니다. 플랫폼이 지원하는 경우, QEMU는 또한 디바이스를 직접 게스트 VM에 직접 연결하는 것도 지원합니다.  이렇게 하면 디바이스 에뮬레이션 오버헤드를 없앨 수 있습니다. 자세한 내용은 [`device-emulation`](device-emulation.md) 을 참조하십시오.
 
 There is a full
-`featured block layer<Live Block Operations>`{.interpreted-text
-role="ref"} which allows for construction of complex storage topology
+[`Live Block Operations`](../interop/live-block-operations.md) which allows for construction of complex storage topology
 which can be stacked across multiple layers supporting redirection,
 networking, snapshots and migration support.
 
