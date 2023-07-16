@@ -90,6 +90,8 @@ experience. Those built around the `libvirt` framework can make use of
 feature probing to build modern VM images tailored to run on the
 hardware you have.
 
+사용자가 명령행을 사용하여 VM을 시작하는 것도 괜찮지만, QEMU 개발진은 더 사용자 친화적인 방식을 제공하고자 한다는 점을 강조하고 싶습니다. `libvirt` 프레임워크를 기반으로 한 여러 프로젝트는 사용자가 보유한 하드웨어 상에서 실행되도록 맞춤 설정된 현대적인 VM 이미지를 만들기 위한 실험적인 기능을 사용합니다.
+
 That said, the general form of a QEMU command line can be expressed as:
 
 ```
