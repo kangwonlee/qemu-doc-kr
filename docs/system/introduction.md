@@ -168,6 +168,8 @@ As the `virt` platform doesn\'t have any default network or storage
 devices we need to define them. We give them ids so we can link them
 with the backend later on.
 
+`virt` 플랫폼은 기본 네트워크나 저장 디바이스가 없으므로 정의해주어야 합니다. 나중에 백엔드와 연결할 수 있도록 id 를 지정합니다.
+
 ``` 
 -device virtio-net-pci,netdev=unet \
 -device virtio-scsi-pci \
@@ -178,6 +180,8 @@ We connect the user-mode networking to our network device. As user-mode
 networking isn\'t directly accessible from the outside world we forward
 localhost port 2222 to the ssh port on the guest.
 
+사용자 모드 네트워킹을 네트워크 디바이스에 연결합니다. 사용자 모드 네트워킹은 외부 세계에서 직접 접근할 수 없으므로 localhost 의 2222 포트를 게스트의 ssh 포트로 포워딩합니다.
+
 ``` 
 -netdev user,id=unet,hostfwd=tcp::2222-:22 \
 ```
@@ -185,16 +189,20 @@ localhost port 2222 to the ssh port on the guest.
 We connect the guest visible block device to an LVM partition we have
 set aside for our guest.
 
+게스트 컴퓨터의 보이는 블럭 디바이스를 게스트를 위해 미리 설정해둔 LVM 파티션에 연결합니다.
+
 ``` 
 -blockdev driver=raw,node-name=hd,file.driver=host_device,file.filename=/dev/lvm-disk/debian-bullseye-arm64 \
 ```
 
-We then tell QEMU to multiplex the `QEMU monitor`{.interpreted-text
-role="ref"} with the serial port output (we can switch between the two
-using `keys in the
-character backend multiplexer`{.interpreted-text role="ref"}). As there
+We then tell QEMU to multiplex the [`QEMU monitor`](monitor.md) with the serial port output (we can switch between the two
+using [`keys in the
+character backend multiplexer`](mux-chardev.md)). As there
 is no default graphical device we disable the display as we can work
 entirely in the terminal.
+
+그 다음으로 QEMU 에 [`QEMU monitor`](monitor.md) 를 시리얼 포트 출력과 다중화하도록 지시합니다. (두 개 사이를 [`keys in the
+character backend multiplexer`](mux-chardev.md) 를 사용하여 전환할 수 있습니다.) 기본 그래픽 디바이스가 없으므로 터미널만으로 작업할 수 있도록 디스플레이를 비활성화합니다.
 
 ``` 
 -serial mon:stdio \
@@ -204,6 +212,8 @@ entirely in the terminal.
 Finally we override the default firmware to ensure we have some storage
 for EFI to persist its configuration. That firmware is responsible for
 finding the disk, booting grub and eventually running our system.
+
+마지막으로 기본 펌웨어를 오버라이드하여 EFI 가 설정을 저장할 수 있는 저장소를 확보합니다. 그 펌웨어는 디스크를 찾고 grub 를 부팅하고 최종적으로 시스템을 실행하는 것을 담당합니다.
 
 ``` 
 -blockdev node-name=rom,driver=file,filename=(pwd)/pc-bios/edk2-aarch64-code.fd,read-only=true \
