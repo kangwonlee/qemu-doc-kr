@@ -73,11 +73,15 @@ understand. While some architectures can boot something with just a disk
 image, those examples elide a lot of details with defaults that may not
 be optimal for modern systems.
 
+QEMU 의 API 는 다양한 기능을 제공하지만 복잡하고 이해하기 어려울 수 있습니다. 일부 아키텍처는 디스크 이미지만으로도 부팅할 수 있지만, 이러한 예제는 다수의 세부 설정에 기본값을 사용할 것이지만 현대 시스템에 최적은 아닐 수 있습니다.
+
 For a non-x86 system where we emulate a broad range of machine types,
 the command lines are generally more explicit in defining the machine
-and boot behaviour. You will find often find example command lines in
-the `system-targets-ref`{.interpreted-text role="ref"} section of the
+and boot behaviour. You will often find example command lines in
+the [`system-targets-ref`](targets.md) section of the
 manual.
+
+방대한 형태의 시스템을 에뮬레이트하게 되는 비 x86 시스템의 경우, 일반적으로 명령행이 더  명시적으로 해당 시스템과 부팅 동작을 정의합니다. 매뉴얼의 [`system-targets-ref`](targets.md) 섹션에서 명령행 예제를 찾을 수 있습니다.
 
 While the project doesn\'t want to discourage users from using the
 command line to launch VMs, we do want to highlight that there are a
