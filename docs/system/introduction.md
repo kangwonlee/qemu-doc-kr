@@ -105,20 +105,25 @@ $ qemu-system-x86_64 [machine opts] \
 ```
 
 Most options will generate some help information. So for example:
+대부분의 옵션은 도움말을 생상할 수 있습니다. 예를 들어:
 
-::: parsed-literal
-\$ -M help
-:::
+```
+$ qemu-system-x86_64 -M help
+```
 
 will list the machine types supported by that QEMU binary. `help` can
 also be passed as an argument to another option. For example:
 
-::: parsed-literal
-\$ -device scsi-hd,help
-:::
+위 명령은 QEMU 실행파일이 지원하는 시스템 종류를 나열할 것입니다. `help` 는 다른 옵션의 인자로도 사용할 수 있습니다. 예를 들어:
+
+```
+$ qemu-system-x86_64 -device scsi-hd,help
+```
 
 will list the arguments and their default values of additional options
 that can control the behaviour of the `scsi-hd` device.
+
+위 명령은 `scsi-hd` 디바이스의 동작을 제어할 수 있는 추가 옵션의 매개변수와 기본값을 나열합니다.
 
   -----------------------------------------------------------------------------
   Options       
