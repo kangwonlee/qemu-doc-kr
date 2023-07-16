@@ -18,18 +18,15 @@ Standard options[¶](#hxtool-0 "Permalink to this headline")
 
 
 
-`-h`
-Display help and exit
+`-h`Display help and exit
 
 
 
-`-version`
-Display version information and exit
+`-version`Display version information and exit
 
 
 
-`-machine [type=]name[,prop=value[,...]]`
-Select the emulated machine by name. Use `-machine help` to list
+`-machine [type=]name[,prop=value[,...]]`Select the emulated machine by name. Use `-machine help` to list
 available machines.
 
 
@@ -50,8 +47,7 @@ Supported machine properties are:
 
 
 
-`accel=accels1[:accels2[:...]]`
-This is used to enable an accelerator. Depending on the target
+`accel=accels1[:accels2[:...]]`This is used to enable an accelerator. Depending on the target
 architecture, kvm, xen, hax, hvf, nvmm, whpx or tcg can be available.
 By default, tcg is used. If there is more than one accelerator
 specified, the next one is used if the previous one fails to
@@ -59,14 +55,13 @@ initialize.
 
 
 
-`vmport=on|off|auto`
-Enables emulation of VMWare IO port, for vmmouse etc. auto says
+`vmport=on|off|auto`Enables emulation of VMWare IO port, for vmmouse etc. auto says
 to select the value based on accel. For accel=xen the default is
 off otherwise the default is on.
 
 
 
-`dump-guest-core=on|off` Include guest memory in a core dump. The default is on.
+`dump-guest-core=on|off`Include guest memory in a core dump. The default is on.
 
 
 
