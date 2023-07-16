@@ -126,15 +126,15 @@ that can control the behaviour of the `scsi-hd` device.
 위 명령은 `scsi-hd` 디바이스의 동작을 제어할 수 있는 추가 옵션의 매개변수와 기본값을 나열합니다.
 
 ### Options Overview
-| Option | Description |
+| Option<br>옵션 | Description<br>설명 |
 | --- | --- |
-| Machine | Define the machine type, amount of memory etc |
-| CPU | Type and number/topology of vCPUs. Most accelerators offer a `host` cpu option which simply passes through your host CPU configuration without filtering out any features. |
-| Accelerator | This will depend on the hypervisor you run. Note that the default is TCG, which is purely emulated, so you must specify an accelerator type to take advantage of hardware virtualization. |
-| Devices | Additional devices that are not defined by default with the machine type. |
-| Backends | Backends are how QEMU deals with the guest\'s data, for example how a block device is stored, how network devices see the network or how a serial device is directed to the outside world. |
-| Interfaces | How the system is displayed, how it is managed and controlled or debugged. |
-| Boot | How the system boots, via firmware or direct kernel boot. |
+| Machine | Define the machine type, amount of memory etc<br>시스템 타입, 메모리 크기 등을 정의 |
+| CPU | Type and number/topology of vCPUs. Most accelerators offer a `host` cpu option which simply passes through your host CPU configuration without filtering out any features.<br>가상 CPU 의 종류와 수, 연결구조. 대부분의 가속기는 `host` cpu 옵션을 제공함. 단순히 host CPU 와 연결시키며 다른 기능을 배제함. |
+| Accelerator | This will depend on the hypervisor you run. Note that the default is TCG, which is purely emulated, so you must specify an accelerator type to take advantage of hardware virtualization.<br>실행 하이퍼바이저에 따라 달라짐. 기본은 TCG 로 에뮬레이션만 함. 따라서 하드웨어 가상화의 혜택을 누리려면 가속기 형태를 지정해야 함.  |
+| Devices | Additional devices that are not defined by default with the machine type.<br>시스템 타입의 기본에 정의되지 않은 추가 디바이스 |
+| Backends | Backends are how QEMU deals with the guest\'s data, for example how a block device is stored, how network devices see the network or how a serial device is directed to the outside world.<br>백엔드는 QEMU가 어떻게 guest 의 데이터를 다루는가에 관한 것임. 예를 들어 블럭 디바이스가 어떻게 저장되는가? 어떻게 네트워크 디바이스가 네트워크를 보는가? 또는 시리얼 디바이스가 외부 세계로 어떻게 연결되는가? |
+| Interfaces | How the system is displayed, how it is managed and controlled or debugged.<br>해당 시스템이 어떻게 표시되는가? 어떻게 관리되고 제어되거나 디버그 되는가? |
+| Boot | How the system boots, via firmware or direct kernel boot.<br>어떻게 시스템이 부팅하는가? 펌웨어를 통해서? 아니면 커널 부트를 통하는가? |
 
 In the following example we first define a `virt` machine which is a
 general purpose platform for running Aarch64 guests. We enable
