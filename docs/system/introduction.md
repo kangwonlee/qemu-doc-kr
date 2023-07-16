@@ -156,6 +156,8 @@ friendly implementation of Arm\'s pointer authentication algorithm. We
 explicitly specify TCG acceleration even though QEMU would default to it
 anyway.
 
+다음으로, 4개의 vCPU 를 정의합니다. `max` 옵션은 QEMU 가 에뮬레이션할 수 있는 모든 Arm 기능을 제공합니다. 구현된 Arm 의 포인터 인증 알고리즘 가운데 에뮬레이션에 더 친숙한 쪽을 활성화합니다. QEMU 는 기본적으로 TCG 가속을 사용하지만 명시적으로 지정합니다.
+
 ``` 
 -cpu max,pauth-impdef=on \
 -smp 4 \
