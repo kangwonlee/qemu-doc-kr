@@ -142,6 +142,8 @@ virtualisation so we can use KVM inside the emulated guest. As the
 `virt` machine comes with some built in pflash devices we give them
 names so we can override the defaults later.
 
+아래 사례에서는 먼저 `virt` 머신을 정의할 것입니다. 이것은 Aarch 64 게스트를 실행하기 위한 범용 플랫폼입니다. 가상화를 활성화하여 에뮬레이트된 게스트 안에서 KVM 을 사용할 수 있게 할 것입니다. `virt` 머신은 내장된 pflash 디바이스를 가지고 있으므로 기본값을 나중에 오버라이드할 수 있도록 이름을 지정합니다.
+
 ``` 
 $ qemu-system-aarch64 \
    -machine type=virt,virtualization=on,pflash0=rom,pflash1=efivars \
