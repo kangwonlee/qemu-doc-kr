@@ -92,13 +92,15 @@ hardware you have.
 
 That said, the general form of a QEMU command line can be expressed as:
 
-::: parsed-literal
-
-\$ \[machine opts\] \\
-
-:   \[cpu opts\] \\ \[accelerator opts\] \\ \[device opts\] \\ \[backend
-    opts\] \\ \[interface opts\] \\ \[boot opts\]
-:::
+```
+$ qemu-system-x86_64 [machine opts] \
+                [cpu opts] \
+                [accelerator opts] \
+                [device opts] \
+                [backend opts] \
+                [interface opts] \
+                [boot opts]
+```
 
 Most options will generate some help information. So for example:
 
