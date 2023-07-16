@@ -56,13 +56,17 @@ This is the interface used by higher level tools interfaces such as
 [Virt Manager](https://virt-manager.org/) using the [libvirt
 framework](https://libvirt.org).
 
+QEMU 는 몇가지 관리 인터페이스를 갖추고 있습니다. (명령)행 기반 [`Human Monitor Protocol (HMP)`](monitor.md) 은 동적으로 디바이스를 추가, 제거하거나 조사해 볼 수 있습니다.
+[`QEMU Monitor Protocol`](../interop/qemu-qmp-ref.md) 는 명확하게 정의되어 있고, 버전 관리되고 있으며, 자동화 가능한 API 로 VM을 생성, 제어, 관리하는 다른 소프트웨어 도구에 다양한 기능을 제공할 수 있습니다. 이 인터페이스는 [libvirt
+framework](https://libvirt.org)를 사용하는 [Virt Manager](https://virt-manager.org/) 같은 더 높은 수준의 인터페이스도 사용합니다.
+
 For the common accelerators QEMU, supported debugging with its
 [`gdbstub`](gdb.md) which allows users to
 connect GDB and debug system software images.
 
 일반적인 가속기에 대해 QEMU 는 [`gdbstub`](gdb.md) 을 지원합니다. 이를 사용하여 사용자가 시스템 소프트웨어 이미지를 GDB와 연결하고 디버깅 할 수 있습니다.
 
-## Running
+## Running<br>실행
 
 QEMU provides a rich and complex API which can be overwhelming to
 understand. While some architectures can boot something with just a disk
