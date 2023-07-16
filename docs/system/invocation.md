@@ -1,8 +1,8 @@
 # Invocation {#sec_005finvocation}
 
-::: parsed-literal
-\[options\] \[disk_image\]
-:::
+```
+qemu-system-x86_64 [options] [disk_image]
+```
 
 disk_image is a raw hard disk image for IDE hard disk 0. Some targets do
 not need a disk image.
