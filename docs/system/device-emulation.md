@@ -8,9 +8,11 @@ devices within QEMU.
 
 QEMU 는 네트워크 카드, USB 장치 같은 주변기기로부터 시스템 온 칩 SoC 에 이르는 다수의 디바이스의 에뮬레이션을 지원합니다. 이들의 설정은 때로 혼란을 불러일으킬 수 있으므로 QEMU 내에서 디바이스를 설명하는데 사용되는 몇 가지 용어에 대한 이해를 가지고 있으면 도움이 됩니다.
 
-## Common Terms<br>공통 용어
+## Common Terms<br>
+공통 용어
 
-### Device Front End<br>장치 프론트엔드
+### Device Front End<br>
+장치 프론트엔드
 
 A device front end is how a device is presented to the guest. The type
 of device presented should match the hardware that the guest operating
@@ -20,8 +22,12 @@ options `--device help` will list all devices it is aware of. Using the
 command line `--device foo,help` will list the additional configuration
 options available for that device.
 
+디바이스 프론트엔드는 어떤 장치가 어떻게 게스트에게 보이는가 하는 것이다. 제공되는 장치의 타입은 게스트 운영체제가 보게 될 것으로 예상하는 하드웨어와 일치해야 한다. 모든 장치는 `--device` 커맨드라인 옵션으로 지정할 수 있다. QEMU 를 실행하면서 `--device help` 명령행 옵션을 사용하면 알고 있는 모든 장치를 나열할 것이다. `--device foo,help` 커맨드라인 옵션을 사용하면 해당 장치에 대한 추가적인 설정 옵션을 나열한다.
+
 A front end is often paired with a back end, which describes how the
 host\'s resources are used in the emulation.
+
+어떤 프론트엔드는 때로 어떤 백엔드와 쌍을 이루는데, 이는 호스트의 리소스가 에뮬레이션에서 어떻게 사용되는지를 묘사한다.
 
 ### Device Buses
 
