@@ -29,7 +29,8 @@ host\'s resources are used in the emulation.
 
 어떤 프론트엔드는 때로 어떤 백엔드와 쌍을 이루는데, 이는 호스트의 리소스가 에뮬레이션에서 어떻게 사용되는지를 묘사한다.
 
-### Device Buses
+### Device Buses<br>
+디바이스 버스
 
 Most devices will exist on a BUS of some sort. Depending on the machine
 model you choose (`-M foo`) a number of buses will have been
@@ -39,16 +40,23 @@ allocated to the next free address of first PCI bus found. However in
 complicated configurations you can explicitly specify what bus
 (`bus=ID`) a device is attached to along with its address (`addr=N`).
 
+대부분의 장치는 어떤 종류의 버스 위에 존재합니다. 선택한 머신 모델에 따라 (`-M foo`) 일부 버스가 자동으로 생성됩니다. 대부분의 경우 장치가 연결된 버스는 추론될 수 있습니다. 예를 들어 PCI 장치는 일반적으로 찾은 첫 번째 빈 PCI 버스의 다음 주소에 자동으로 할당됩니다. 그러나 복잡한 구성에서는 장치가 연결된 버스 (`bus=ID`)와 주소 (`addr=N`)를 명시적으로 지정할 수 있습니다.
+
 Some devices, for example a PCI SCSI host controller, will add an
 additional buses to the system that other devices can be attached to. A
 hypothetical chain of devices might look like:
 
-> \--device foo,bus=pci.0,addr=0,id=foo \--device
-> bar,bus=foo.0,addr=1,id=baz
+어떤 장치는, 예를 들어 PCI SCSI 호스트 콘트롤러 같은 경우, 다른 장치가 붙을 수 있는 또 다른 버스를 시스템에 추가할 수 있습니다. 가상의 장치 체인은 다음과 비슷해 보일 수 있습니다.
 
-which would be a bar device (with the ID of baz) which is attached to
-the first foo bus (foo.0) at address 1. The foo device which provides
-that bus is itself is attached to the first PCI bus (pci.0).
+```
+--device foo,bus=pci.0,addr=0,id=foo --device bar,bus=foo.0,addr=1,id=baz
+```
+
+which would be a `bar` device (with the ID of baz) which is attached to
+the first `foo` bus (`foo.0`) at address 1. The `foo` device which provides
+that bus is itself is attached to the first PCI bus (`pci.0`).
+
+`bar` 장치 (ID 가 baz 인)는 첫 번째 `foo` 버스 (`foo.0`)에 주소 1로 연결될 것입니다. 그 버스를 제공하는 `foo` 장치는 첫 번째 PCI 버스 (`pci.0`)에 연결됩니다.
 
 ### Device Back End
 
