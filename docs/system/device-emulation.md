@@ -1,4 +1,4 @@
-# Device Emulation
+# Device Emulation<br>디바이스 에뮬레이션
 
 QEMU supports the emulation of a large number of devices from
 peripherals such network cards and USB devices to integrated systems on
@@ -6,9 +6,11 @@ a chip (SoCs). Configuration of these is often a source of confusion so
 it helps to have an understanding of some of the terms used to describes
 devices within QEMU.
 
-## Common Terms
+QEMU 는 네트워크 카드, USB 장치 같은 주변기기로부터 시스템 온 칩 SoC 에 이르는 다수의 디바이스의 에뮬레이션을 지원합니다. 이들의 설정은 때로 혼란을 불러일으킬 수 있으므로 QEMU 내에서 디바이스를 설명하는데 사용되는 몇 가지 용어에 대한 이해를 가지고 있으면 도움이 됩니다.
 
-### Device Front End
+## Common Terms<br>공통 용어
+
+### Device Front End<br>장치 프론트엔드
 
 A device front end is how a device is presented to the guest. The type
 of device presented should match the hardware that the guest operating
