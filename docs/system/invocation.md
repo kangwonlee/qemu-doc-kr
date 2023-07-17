@@ -164,9 +164,11 @@ For example:<br>
 `cxl-fmw.0.targets.0=firsttarget,cxl-fmw.0.targets.1=secondtarget,cxl-fmw.0.size=size[,cxl-fmw.0.interleave-granularity=granularity]`
 Define a CXL Fixed Memory Window (CFMW).
 
+CXL 고정 메모리 윈도우 (CFMW) 를 정의한다.
 
 Described in the CXL 2.0 ECN: CEDT CFMWS & QTG \_DSM.
 
+CXL 2.0 ECN 에 설명되어 있다: CEDT CFMWS & QTG \_DSM.
 
 They are regions of Host Physical Addresses (HPA) on a system which
 may be interleaved across one or more CXL host bridges. The system
@@ -175,30 +177,33 @@ configure the downstream Host-managed Device Memory (HDM) decoders
 in root ports, switch ports and devices appropriately to meet the
 interleave requirements before enabling the memory devices.
 
+시스템상 호스트 물리 주소 (HPA) 의 영역으로 하나 이상의 CXL 호스트 브릿지를 통해 분산 할당될 수 있다. 시스템 소프트웨어는 특정 장치를 이 윈도우에 할당하고, 루트 포트, 스위치 포트, 장치의 아랫단 호스트 관리 장치 메모리 (HDM) 디코더를 적절하게 구성하여 분산 할당 요구 사항을 충족시킨 후 메모리 장치를 활성화 시킨다.
 
 `targets.X=target`
 provides the mapping to CXL host bridges
-which may be identified by the id provided in the -device entry.
+which may be identified by the id provided in the `-device` entry.
 Multiple entries are needed to specify all the targets when
 the fixed memory window represents interleaved memory. X is the
 target index from 0.
 
+CXL 호스트 브릿지에 매핑을 제공한다. 이는 `-device` 항목에서 제공된 id 로 식별하는 것도 가능하다. 고정 메모리 윈도우가 분산 할당된 메모리를 나타낼 때 모든 타겟을 지정하기 위해 여러 항목이 필요하다. X 는 0부터 시작하는 타겟 인덱스이다.
 
 `size=size`
 sets the size of the CFMW. This must be a multiple of
 256MiB. The region will be aligned to 256MiB but the location is
 platform and configuration dependent.
 
+CFMW 의 크기를 정한다. 이는 반드시 256MiB 의 배수여야 한다. 영역은 256MiB 로 정렬되지만 위치는 플랫폼과 구성에 따라 다르다.
 
 `interleave-granularity=granularity`
 sets the granularity of
 interleave. Default 256KiB. Only 256KiB, 512KiB, 1024KiB, 2048KiB
 4096KiB, 8192KiB and 16384KiB granularities supported.
 
+분산 할당 영역에서 처리 단위 크기를 정한다. 기본값은 256KiB 이다. 256KiB, 512KiB, 1024KiB, 2048KiB 4096KiB, 8192KiB, 16384KiB 만 지원된다.
 
-Example:
-
-
+Example:<br>
+사례:
 
 ```
 -machine cxl-fmw.0.targets.0=cxl.0,cxl-fmw.0.targets.1=cxl.1,cxl-fmw.0.size=128G,cxl-fmw.0.interleave-granularity=512k
