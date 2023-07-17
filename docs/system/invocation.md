@@ -59,71 +59,72 @@ Supported machine properties are:
 
 `accel=accels1[:accels2[:...]]`
 This is used to enable an accelerator. Depending on the target
-architecture, kvm, xen, hax, hvf, nvmm, whpx or tcg can be available.
-By default, tcg is used. If there is more than one accelerator
+architecture, `kvm`, `xen`, `hax`, `hvf`, `nvmm`, `whpx` or `tcg` can be available.
+By default, `tcg` is used. If there is more than one accelerator
 specified, the next one is used if the previous one fails to
 initialize.
 
-
+이것은 가속기를 활성화 하기 위해 사용된다. 타겟 아키텍처에 따라, `kvm`, `xen`, `hax`, `hvf`, `nvmm`, `whpx` 또는 `tcg` 를 선택할 수 있다. 기본으로는 `tcg` 가 사용된다. 만약 하나 이상의 가속기가 지정되어 있다면, 이전 것이 초기화에 실패하면 다음 것이 사용된다.
 
 `vmport=on|off|auto`
 Enables emulation of VMWare IO port, for vmmouse etc. auto says
 to select the value based on accel. For accel=xen the default is
 off otherwise the default is on.
 
-
+VMWare IO 포트 에뮬레이션을 vmmouse 등을 위해 활성화한다. `auto` 는 `accel`에 따른 값을 선택한다. `accel=xen`이면 기본값은 `off`이고, 그 외에는 기본값 `on`이다.
 
 `dump-guest-core=on|off`
-Include guest memory in a core dump. The default is on.
+Include guest memory in a core dump. The default is `on`.
 
-
+게스트 메모를 core dump 에 포함한다. 기본 `on`.
 
 `mem-merge=on|off`
 Enables or disables memory merge support. This feature, when
 supported by the host, de-duplicates identical memory pages
 among VMs instances (enabled by default).
 
-
+메모리 병합 지원을 활성화 또는 비활성화 한다. 이 기능은 호스트에서 지원되면, VM 인스턴스들 사이에서 동일한 메모리 페이지를 제거한다. (기본으로 활성화)
 
 `aes-key-wrap=on|off`
 Enables or disables AES key wrapping support on s390-ccw hosts.
 This feature controls whether AES wrapping keys will be created
 to allow execution of AES cryptographic functions. The default
-is on.
+is `on`.
 
-
+s390-ccw 호스트 상에서 AES 키 래핑 지원을 활성화 또는 비활성화 한다. 이 기능은 AES wrapping 키가 AES 암호화 함수를 실행할 수 있도록 생성되는 것을 제어한다. 기본값은 `on`.
 
 `dea-key-wrap=on|off`
 Enables or disables DEA key wrapping support on s390-ccw hosts.
 This feature controls whether DEA wrapping keys will be created
 to allow execution of DEA cryptographic functions. The default
-is on.
+is `on`.
 
-
+s390-ccw 호스트 상에서 DEA 키 래핑 지원을 활성화 또는 비활성화 한다. 이 기능은 DES 래핑 키가 DES 암호화 함수를 실행할 수 있도록 생성되는 것을 제어한다. 기본값은 `on`.
 
 `nvdimm=on|off`
-Enables or disables NVDIMM support. The default is off.
+Enables or disables NVDIMM support. The default is `off`.
 
-
+NVDIMM 지원을 활성화 또는 비활성화한다. 기본 `off`.
 
 `memory-encryption=`
-Memory encryption object to use. The default is none.
+Memory encryption object to use. The default is `none`.
 
-
+메모리 암호화 객체를 지정한다. 기본값은 `none`.
 
 `hmat=on|off`
 Enables or disables ACPI Heterogeneous Memory Attribute Table
-(HMAT) support. The default is off.
+(HMAT) support. The default is `off`.
 
-
+ACPI 헤테로지니어스 메모리 속성표 (HMAT) 지원을 활성화 또는 비활성화한다. 기본값은 `off`.
 
 `memory-backend='id'`
 An alternative to legacy `-mem-path` and `mem-prealloc` options.
 Allows to use a memory backend as main RAM.
 
+이전 `-mem-path` 와 `mem-prealloc` 옵션의 대안이다. 메모리 백엔드를 메인 RAM으로 사용할 수 있게 한다.
 
-For example:
-
+For example:<br>
+예:
 
 
 ```
@@ -134,19 +135,21 @@ For example:
 ```
 
 
-Migration compatibility note:
-
+Migration compatibility note:<br>
+마이그레이션 호환성 보충:
 
 * as backend id one shall use value of ‘default-ram-id’, advertised by
 machine type (available via `query-machines` QMP command), if migration
-to/from old QEMU (<5.0) is expected.
+to/from old QEMU (<5.0) is expected.<br>
+만약 오래된 QEMU (<5.0) 상대로 마이그레이션이 예상된다면, 백엔드 id 로는 시스템 타입이 알리는 ‘default-ram-id’ 값을 사용해야 한다. (QMP 명령 `query-machines` 로 확인 가능)
 * for machine types 4.0 and older, user shall
 use `x-use-canonical-path-for-ramblock-id=off` backend option
-if migration to/from old QEMU (<5.0) is expected.
+if migration to/from old QEMU (<5.0) is expected.<br>
+4.0 또는 이전의 시스템 타입에서는, 오래된 QEMU (<5.0) 상대로 마이그레이션이 예상된다면, 사용자는 백엔드 옵션 `x-use-canonical-path-for-ramblock-id=off` 를 사용해야 한다.
 
 
-For example:
-
+For example:<br>
+사례:
 
 
 ```
