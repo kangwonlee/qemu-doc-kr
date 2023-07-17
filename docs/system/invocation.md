@@ -11,6 +11,7 @@ qemu-system-x86_64 [options] [disk_image]
 disk\_image is a raw hard disk image for IDE hard disk 0. Some targets do
 not need a disk image.
 
+`disk_image` 는 하드 디스크 이미지로 IDE 0 번을 위한 것이다. 어떤 타겟은 디스크 이미지가 필요하지 않다.
 
 
 Standard options[¶](#hxtool-0 "Permalink to this headline")
@@ -21,23 +22,28 @@ Standard options[¶](#hxtool-0 "Permalink to this headline")
 `-h`
 Display help and exit
 
+도움말을 보여 주고 마친다.
 
 
 `-version`
 Display version information and exit
 
-
+버전 정보를 보여 주고 마친다.
 
 `-machine [type=]name[,prop=value[,...]]`
 Select the emulated machine by name. Use `-machine help` to list
 available machines.
 
+`name` 으로 에뮬레이션 머신을 선택한다. 사용 가능한 머신을 나열하려면 `-machine help` 를 사용한다.
 
 For architectures which aim to support live migration compatibility
 across releases, each release will introduce a new versioned machine
 type. For example, the 2.8.0 release introduced machine types
 “pc-i440fx-2.8” and “pc-q35-2.8” for the x86\_64/i686 architectures.
 
+배포판 사이의 라이브 마이그레이션 지원 호환성을 지원하기 위한 아키텍처에 대해서는
+각 배포판이 새로운 버전 관리된 시스템 타입을 도입할 것이다.
+예를 들어, 2.8.0 배포판은 x86_64/i686 아키텍처를 위한 “pc-i440fx-2.8” 과 “pc-q35-2.8” 시스템 타입을 처음으로 추가했다.
 
 To allow live migration of guests from QEMU version 2.8.0, to QEMU
 version 2.9.0, the 2.9.0 version must support the “pc-i440fx-2.8”
@@ -45,10 +51,11 @@ and “pc-q35-2.8” machines too. To allow users live migrating VMs to
 skip multiple intermediate releases when upgrading, new releases of
 QEMU will support machine types from many previous versions.
 
+게스트의 라이브 마이그레이션을 위해서는, QEMU 2.8.0 으로부터 QEMU 2.9.0 으로의 경우, 2.9.0 판은 반드시 “pc-i440fx-2.8” 과 “pc-q35-2.8” 시스템도 지원해야 한다. 사용자가 업그레이드 할 때 가상 머신을 여러 중간 배포판을 거치지 않고 라이브 마이그레이션할 수 있도록, QEMU 의 새로운 배포판은 많은 이전 버전의 시스템 타입을 지원할 것이다.
 
 Supported machine properties are:
 
-
+지원되는 시스템 속성은 다음과 같다:
 
 `accel=accels1[:accels2[:...]]`
 This is used to enable an accelerator. Depending on the target
