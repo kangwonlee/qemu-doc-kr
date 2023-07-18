@@ -82,19 +82,17 @@ PCI slot to the exclusive use of the guest.
 
 ## Emulated Devices
 
-::: {.toctree maxdepth="1"}
-devices/can.rst
-devices/ccid.rst
-devices/cxl.rst
-devices/ivshmem.rst
-devices/keyboard.rst
-devices/net.rst
-devices/nvme.rst
-devices/usb.rst
-devices/vhost-user.rst
-devices/virtio-pmem.rst
-devices/vhost-user-rng.rst
-devices/canokey.rst
-devices/usb-u2f.rst
-devices/igb.rst
-:::
+* [CAN Bus Emulation Support](devices/can.rst)
+* [Chip Card Interface Device (CCID)](devices/ccid.rst)
+* [Compute Express Link (CXL)](devices/cxl.rst)
+* [Inter-VM Shared Memory device](devices/ivshmem.rst)
+* [Sparc32 keyboard](devices/keyboard.rst)
+* [Network emulation](devices/net.rst)
+* [NVMe Emulation](devices/nvme.rst)
+* [USB emulation](devices/usb.rst)
+* [vhost-user back ends](devices/vhost-user.rst)
+* [virtio pmem](devices/virtio-pmem.rst)
+* [QEMU vhost-user-rng - RNG emulation](devices/vhost-user-rng.rst)
+* [CanoKey QEMU](devices/canokey.rst)
+* [Universal Second Factor (U2F) USB Key Device](devices/usb-u2f.rst)
+* [igb](devices/igb.rst)
