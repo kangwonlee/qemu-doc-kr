@@ -217,13 +217,15 @@ Example:<br>
 `sgx-epc.0.memdev=@var{memid},sgx-epc.0.node=@var{numaid}`
 Define an SGX EPC section.
 
-
+SGX EPC 섹션을 정의한다.
 
 `-cpu model`
 Select CPU model (`-cpu help` for list and additional feature
 selection)
 
+CPU 모델을 선택한다 (`-cpu help` 를 사용하면 추가 기능의 목록을 표시한다)
 
+`-cpu host`
 
 `-accel name[,prop=value[,...]]`
 This is used to enable an accelerator. Depending on the target
@@ -232,14 +234,16 @@ default, tcg is used. If there is more than one accelerator
 specified, the next one is used if the previous one fails to
 initialize.
 
+가속기를 활성화 하기 위해 사용한다. 타겟 아키텍처에 따라, `kvm`, `xen`, `hax`, `hvf`, `nvmm`, `whpx`, `tcg` 가 사용 가능하다. 기본적으로 `tcg` 가 사용된다. 여러 가속기가 지정된 경우, 이전 가속기가 초기화에 실패하면 다음 가속기가 사용된다.
 
+`-accel tcg[,thread=on|off][,tcg-threads=n]`
 
 `igd-passthru=on|off`
 When Xen is in use, this option controls whether Intel
 integrated graphics devices can be passed through to the guest
 (default=off)
 
-
+xen 이 사용중이면, 이 옵션은 인텔 통합 그래픽 장치가 게스트로 직결될 수 있는지 여부를 제어한다 (기본값=off)
 
 `kernel-irqchip=on|off|split`
 Controls KVM in-kernel irqchip support. The default is full
