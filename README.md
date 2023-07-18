@@ -32,3 +32,4 @@ QEMU 원래의 저장소는 https://www.qemu.org/contribute/ 참고 바랍니다
 ## 번역한 파일 목록
 
 * docs/system/introduction.md
+* docs/system/device-emulation.md
