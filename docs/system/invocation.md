@@ -218,8 +218,8 @@ Controls KVM in-kernel irqchip support. The default is full
 acceleration of the interrupt controllers. On x86, split irqchip
 reduces the kernel attack surface, at a performance cost for
 non-MSI interrupts. Disabling the in-kernel irqchip completely
-is not recommended except for debugging purposes.
-
+is not recommended except for debugging purposes.<br>
+KVM 의 커널 내장 irqchip 지원을 제어한다. 기본은 인터럽트 콘트롤러를 전면적으로 가속하는 것이다. x86상에서 irqchip split 은 커널 공격 면적을 줄여주지만, 비 MSI 인터럽트 성능은 저하된다. 커널 내장 irqchip 을 완전히 비활성화 하는것은 디버깅 목적 이외에는 추천하지 않는다.
 
 
 `kvm-shadow-mem=size`
