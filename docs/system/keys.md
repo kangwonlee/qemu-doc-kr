@@ -6,7 +6,7 @@ change modes. The default key mappings are shown below, but if you use
 `-alt-grab` then the modifier is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd> (instead of <kbd>Ctrl</kbd>+<kbd>Alt</kbd>)
 and if you use `-ctrl-grab` then the modifier is the right <kbd>Ctrl</kbd> key
 (instead of <kbd>Ctrl</kbd>+<kbd>Alt</kbd>):<br>
-그래픽 에뮬레이션 중, 특별한 키 조합을 사용하여 모드를 전환할 수 있다. 기본 키 매핑은 다음과 같지만, `-alt-grab` 을 사용한다면 <kbd>Ctrl</kbd>+<kbd>Alt</kbd> 대신 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>을, `-ctrl-grab` 을 사용한다면 <kbd>Ctrl</kbd>+<kbd>Alt</kbd> 대신 오른쪽 <kbd>Ctrl</kbd>을 사용:
+그래픽 에뮬레이션 중, 특별한 키 조합을 사용하여 모드를 전환할 수 있다. 기본 키 매핑은 다음과 같지만, `-alt-grab` 을 사용한다면 <kbd>Ctrl</kbd>+<kbd>Alt</kbd> 대신 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>를, `-ctrl-grab` 을 사용한다면 <kbd>Ctrl</kbd>+<kbd>Alt</kbd> 대신 오른쪽 <kbd>Ctrl</kbd>을 사용:
 
 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>f</kbd> Toggle full screen 전체 화면 전환
 
