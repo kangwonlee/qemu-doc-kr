@@ -223,16 +223,16 @@ KVM 의 커널 내장 irqchip 지원을 제어한다. 기본은 인터럽트 콘
 
 
 `kvm-shadow-mem=size`
-Defines the size of the KVM shadow MMU.
-
+Defines the size of the KVM shadow MMU.<br>
+KVM shadow MMU 의 크기를 정의한다.
 
 
 `one-insn-per-tb=on|off`
 Makes the TCG accelerator put only one guest instruction into
 each translation block. This slows down emulation a lot, but
 can be useful in some situations, such as when trying to analyse
-the logs produced by the `-d` option.
-
+the logs produced by the `-d` option.<br>
+TCG 가속기의 각 변환 블럭에 하나의 게스트 인스트럭션씩만 넣도록 한다. 이렇게 하면 에뮬레이션이 많이 느려지지만 어떤 상황에서는 유용한데, 예를 들어 `-d` 옵션으로 생성한 로그를 분석하려고 하는 경우 등이다.
 
 
 `split-wx=on|off`
