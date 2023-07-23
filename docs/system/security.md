@@ -112,13 +112,14 @@ security risk must be clearly documented so users are aware of the
 trade-off of enabling the feature.<br>
 새로운 기능은 반드시 최소 권한 원칙을 따르도록 설계되어야 합니다. 기술적인 이유로 이것이 불가능하다면, 보안 위험은 반드시 명시적으로 문서화되어 사용자들이 해당 기능을 활성화 하는데 댓가를 알 수 있어야 합니다.
 
-### Isolation mechanisms
+### Isolation mechanisms<br>분리 메커니즘
 
 Several isolation mechanisms are available to realize this architecture
 of guest isolation and the principle of least privilege. With the
 exception of Linux seccomp, these mechanisms are all deployed by
 management tools that launch QEMU, such as libvirt. They are also
-platform-specific so they are only described briefly for Linux here.
+platform-specific so they are only described briefly for Linux here.<br>
+몇가지 분리 메커니즘을 사용하여 게스트 분리 아키텍처와 최소 권한 원칙을 구현할 수 있습니다. Linux seccomp를 제외한 이러한 메커니즘은 libvirt와 같은 QEMU를 실행하는 관리 도구를 통해 제공됩니다. 또한 플랫폼별로 다르기 때문에 여기서는 Linux에 대해서만 간단히 설명합니다.
 
 The fundamental isolation mechanism is that QEMU processes must run as
 unprivileged users. Sometimes it seems more convenient to launch QEMU as
@@ -128,21 +129,26 @@ an otherwise unprivileged QEMU process access to host devices without
 running QEMU as root. It is also possible to launch QEMU as a non-root
 user and configure UNIX groups for access to `/dev/kvm`, `/dev/net/tun`,
 and other device nodes. Some Linux distros already ship with UNIX groups
-for these devices by default.
+for these devices by default.<br>
+기본적인 분리 메커니즘은 QEMU 프로세스가 비 권한 사용자로 실행되어야 한다는 것입니다. 때로는 호스트 장치 (예: `/dev/net/tun`)에 대한 액세스 권한을 부여하기 위해 QEMU를 root로 실행하는 것이 더 편리해 보이지만 이는 엄청난 보안 위험을 초래합니다. 파일 디스크립터 전달을 사용하면 다른 권한이 높지 않더라도 QEMU 프로세스가 root로 실행되지 않고도 호스트 장치에 액세스할 수 있습니다. 또한 QEMU를 root가 아닌 사용자로 실행하고 UNIX 그룹을 설정하여 `/dev/kvm`, `/dev/net/tun` 와 기타 장치 노드에 대한 접근 권한을 부여할 할 수도 있습니다. 일부 Linux 배포판은 이미 기본적으로 이러한 장치에 대한 UNIX 그룹을 함께 제공합니다.
 
 -   SELinux and AppArmor make it possible to confine processes beyond
     the traditional UNIX process and file permissions model. They
     restrict the QEMU process from accessing processes and files on the
-    host system that are not needed by QEMU.
+    host system that are not needed by QEMU.<br>
+    SELinux 와 AppArmor 는 전통적인 UNIX 프로세스 및 파일 권한 모델을 넘어 프로세스를 제한할 수 있게 합니다. QEMU 프로세스가 QEMU에서 필요하지 않은 호스트 시스템의 프로세스와 파일에 접근하는 것을 제한합니다.
 -   Resource limits and cgroup controllers provide throughput and
     utilization limits on key resources such as CPU time, memory, and
-    I/O bandwidth.
+    I/O bandwidth.<br>
+    리소스 제한과 cgroup 컨트롤러는 CPU 시간, 메모리 및 I/O 대역폭과 같은 주요 리소스에 대한 처리량 및 활용도 제한을 제공합니다.
 -   Linux namespaces can be used to make process, file system, and other
     system resources unavailable to QEMU. A namespaced QEMU process is
-    restricted to only those resources that were granted to it.
+    restricted to only those resources that were granted to it.<br>
+    리눅스 네임스페이스는 프로세스, 파일 시스템 및 기타 시스템 리소스를 QEMU에서 사용할 수 없도록 만들 수 있습니다. 네임스페이스가 지정된 QEMU 프로세스는 부여된 리소스에만 제한됩니다.
 -   Linux seccomp is available via the QEMU `--sandbox` option. It
     disables system calls that are not needed by QEMU, thereby reducing
-    the host kernel attack surface.
+    the host kernel attack surface.<br>
+    리눅스 seccomp 는 QEMU `--sandbox` 옵션을 통해 사용할 수 있습니다. QEMU에서 필요하지 않은 시스템 호출을 비활성화하여 호스트 커널 공격 표면을 줄입니다.
 
 ## Sensitive configurations
 
