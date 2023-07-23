@@ -53,29 +53,33 @@ Bugs affecting the non-virtualization use case are not considered
 security bugs at this time. Users with non-virtualization use cases must
 not rely on QEMU to provide guest isolation or any security guarantees.<br>이러한 비 가상화 유즈케이스에 영향을 끼치는 버그는 현재는 보안 버그로 간주되지 않습니다. 비 가상화 유즈케이스를 사용하는 사용자는 게스트 격리 또는 보안 보장 제공을 QEMU에만 의존해서는 안 됩니다.
 
-## Architecture
+## Architecture<br>아키텍처
 
 This section describes the design principles that ensure the security
-requirements are met.
+requirements are met.<br>
+이 섹션은 보안 요구 사항을 충족되는지 확인하는 설계 원칙을 설명합니다.
 
-### Guest Isolation
+### Guest Isolation<br>게스트 분리
 
 Guest isolation is the confinement of guest code to the virtual machine.
 When guest code gains control of execution on the host this is called
 escaping the virtual machine. Isolation also includes resource limits
 such as throttling of CPU, memory, disk, or network. Guests must be
-unable to exceed their resource limits.
+unable to exceed their resource limits.<br>
+게스트 분리는 게스트 코드를 가상 머신 내에서만 실행되도록 하는 것입니다. 게스트 코드가 호스트에서 실행 제어권을 얻으면 이를 가상 머신에서 탈출한다고 합니다. 격리에는 또한 CPU, 메모리, 디스크 또는 네트워크의 제한과 같은 리소스 제한도 포함됩니다. 게스트는 리소스 제한을 초과할 수 없어야 합니다.
 
 QEMU presents an attack surface to the guest in the form of emulated
 devices. The guest must not be able to gain control of QEMU. Bugs in
 emulated devices could allow malicious guests to gain code execution in
 QEMU. At this point the guest has escaped the virtual machine and is
-able to act in the context of the QEMU process on the host.
+able to act in the context of the QEMU process on the host.<br>
+QEMU 는 에뮬레이션된 장치 형태로 게스트에게 공격 표면을 제공합니다. 게스트는 QEMU의 제어권을 얻을 수 없어야 합니다. 에뮬레이션된 장치의 버그로 인해 악의적인 게스트 코드가 QEMU 안에서 실행될 수도 있습니다. 이 시점에서 게스트는 가상 머신에서 탈출한 것이고 호스트의 QEMU 프로세스의 컨텍스트에서 작동할 수 있습니다.
 
 Guests often interact with other guests and share resources with them. A
 malicious guest must not gain control of other guests or access their
 data. Disk image files and network traffic must be protected from other
-guests unless explicitly shared between them by the user.
+guests unless explicitly shared between them by the user.<br>
+게스트는 때로 다른 게스트와 상호 작용하고 리소스를 공유합니다. 악의적인 게스트가 다른 게스트의 제어권을 갖게 되거나 데이터에 접근할 수 없어야 합니다. 디스크 이미지 파일과 네트워크 트래픽은 사용자가 명시적으로 공유하지 않는 한 다른 게스트로부터 보호되어야 합니다.
 
 ### Principle of Least Privilege
 
