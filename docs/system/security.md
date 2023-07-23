@@ -150,41 +150,48 @@ for these devices by default.<br>
     the host kernel attack surface.<br>
     리눅스 seccomp 는 QEMU `--sandbox` 옵션을 통해 사용할 수 있습니다. QEMU에서 필요하지 않은 시스템 호출을 비활성화하여 호스트 커널 공격 표면을 줄입니다.
 
-## Sensitive configurations
+## Sensitive configurations<br>민감한 설정 사항
 
 There are aspects of QEMU that can have security implications which
-users & management applications must be aware of.
+users & management applications must be aware of.<br>
+QEMU에는 보안에 영향을 미칠 수 있기 때문에 사용자와 관리 응용 프로그램이 알아야 할 몇가지 사항이 있습니다.
 
-### Monitor console (QMP and HMP)
+### Monitor console (QMP and HMP)<br>모니터 콘솔 (QMP와 HMP)
 
 The monitor console (whether used with QMP or HMP) provides an interface
 to dynamically control many aspects of QEMU\'s runtime operation. Many
 of the commands exposed will instruct QEMU to access content on the host
-file system and/or trigger spawning of external processes.
+file system and/or trigger spawning of external processes.<br>
+모니터 콘솔 (QMP 와 HMP 어느 쪽과 사용 되건) 은 QEMU의 런타임 동작의 많은 측면을 동적으로 제어하는 인터페이스를 제공합니다. 노출된 많은 명령은 QEMU가 호스트 파일 시스템의 내용에 접근하거나 외부 프로세스를 생성하도록 지시합니다.
 
 For example, the `migrate` command allows for the spawning of arbitrary
 processes for the purpose of tunnelling the migration data stream. The
 `blockdev-add` command instructs QEMU to open arbitrary files, exposing
-their content to the guest as a virtual disk.
+their content to the guest as a virtual disk.<br>
+예를 들어, `migrate` 명령은 마이그레이션 데이터 스트림을 터널링(우회 전송)하기 위해 임의의 프로세스를 생성할 수 있습니다. `blockdev-add` 명령은 QEMU에게 임의의 파일을 열도록 지시하여 그 내용을 게스트에게 가상 디스크 형태로 노출시킵니다.
 
 Unless QEMU is otherwise confined using technologies such as SELinux,
 AppArmor, or Linux namespaces, the monitor console should be considered
 to have privileges equivalent to those of the user account QEMU is
-running under.
+running under.<br>
+QEMU가 달리 SELinux, AppArmor 또는 Linux 네임스페이스와 같은 기술을 사용하여 제한되지 않는 한, 모니터 콘솔은 QEMU가 실행되는 사용자 계정과 동등한 권한을 가진 것으로 간주되어야 합니다.
 
 It is further important to consider the security of the character device
 backend over which the monitor console is exposed. It needs to have
 protection against malicious third parties which might try to make
 unauthorized connections, or perform man-in-the-middle attacks. Many of
 the character device backends do not satisfy this requirement and so
-must not be used for the monitor console.
+must not be used for the monitor console.<br>
+모니터 콘솔이 노출되는 문자 장치 백엔드의 보안을 고려하는 것이 더욱 중요합니다. 불법적인 연결 또는 중간자 공격을 시도할 수 있는 악의적인 제3자로부터 보호되어야 합니다. 다수의 문자 장치 백엔드가 이 요구 사항을 충족하지 않으므로 모니터 콘솔에 사용해서는 안됩니다.
 
 The general recommendation is that the monitor console should be exposed
 over a UNIX domain socket backend to the local host only. Use of the TCP
 based character device backend is inappropriate unless configured to use
 both TLS encryption and authorization control policy on client
-connections.
+connections.<br>
+일반적인 권고 사항은 모니터 콘솔은 UNIX 도메인 소켓 백엔드를 통해 로컬 호스트에만 노출되어야 합니다. TCP 기반 문자 장치 백엔드는 클라이언트 연결에 TLS 암호화 및 인증 제어 정책을 모두 사용하도록 구성되지 않는 한 적절하지 않습니다.
 
 In summary, the monitor console is considered a privileged control
 interface to QEMU and as such should only be made accessible to a
-trusted management application or user.
+trusted management application or user.<br>
+요약하면, 모니터 콘솔은 QEMU에 대한 하나의 특권 제어 인터페이스로 간주되므로 신뢰할 수 있는 관리 응용 프로그램 또는 사용자만 접근할 수 있도록 해야 합니다.
