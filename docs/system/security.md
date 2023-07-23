@@ -1,51 +1,57 @@
-# Security
+# Security<br>보안
 
-## Overview
+## Overview<br>개요
 
 This chapter explains the security requirements that QEMU is designed to
-meet and principles for securely deploying QEMU.
+meet and principles for securely deploying QEMU.<br>
+이 장은 QEMU가 충족시키도록 설계된 보안 요구 사항과 QEMU를 안전하게 배포하는 원칙을 설명합니다.
 
-## Security Requirements
+## Security Requirements<br>보안 요구 사항
 
 QEMU supports many different use cases, some of which have stricter
 security requirements than others. The community has agreed on the
 overall security requirements that users may depend on. These
 requirements define what is considered supported from a security
-perspective.
+perspective.<br>
+QEMU는 많은 다양한 유즈케이스를 지원하며, 일부는 다른 것보다 엄격한 보안 요구 사항을 가지고 있습니다. 커뮤니티는 사용자가 의존할 수 있는 전반적인 보안 요구 사항에 동의했습니다. 이러한 요구 사항은 보안 관점에서 어떤 것이 지원되는 것으로 간주되는지를 정의합니다.
 
-### Virtualization Use Case
+### Virtualization Use Case<br>가상화 유즈케이스
 
 The virtualization use case covers cloud and virtual private server
 (VPS) hosting, as well as traditional data center and desktop
 virtualization. These use cases rely on hardware virtualization
 extensions to execute guest code safely on the physical CPU at
-close-to-native speed.
+close-to-native speed.<br>
+가상화 유즈케이스는 클라우드 및 가상 사설 서버(VPS) 호스팅, 전통적인 데이터 센터 와 데스크톱 가상화를 포함합니다. 이러한 유즈케이스에서 물리적 CPU가 게스트 코드를 안전하게 거의 네이티브 속도로 실행할 수 있는지 여부는 하드웨어 가상화 확장에 달려 있습니다.
 
 The following entities are untrusted, meaning that they may be buggy or
-malicious:
+malicious:<br>
+다음 entity는 신뢰할 수 없으며, 즉 버그가 있거나 악의적일 수 있습니다:
 
--   Guest
--   User-facing interfaces (e.g. VNC, SPICE, WebSocket)
--   Network protocols (e.g. NBD, live migration)
--   User-supplied files (e.g. disk images, kernels, device trees)
--   Passthrough devices (e.g. PCI, USB)
+-   Guest<br>게스트
+-   User-facing interfaces (e.g. VNC, SPICE, WebSocket)<br>사용자 인터페이스 (예: VNC, SPICE, WebSocket)
+-   Network protocols (e.g. NBD, live migration)<br>네트워크 프로토콜 (예: NBD, 라이브 마이그레이션)
+-   User-supplied files (e.g. disk images, kernels, device trees)<br>사용자 제공 파일 (예: 디스크 이미지, 커널, 디바이스 트리)
+-   Passthrough devices (e.g. PCI, USB)<br>패스스루 장치 (예: PCI, USB)
 
 Bugs affecting these entities are evaluated on whether they can cause
 damage in real-world use cases and treated as security bugs if this is
-the case.
+the case.<br>
+이러한 entity에 영향을 미치는 버그는 실제 유즈케이스에서 손상을 일으킬 수 있는지 여부로 평가되며, 이 경우 보안 버그로 처리됩니다.
 
-### Non-virtualization Use Case
+### Non-virtualization Use Case<br>비 가상화 유즈케이스
 
 The non-virtualization use case covers emulation using the Tiny Code
 Generator (TCG). In principle the TCG and device emulation code used in
 conjunction with the non-virtualization use case should meet the same
 security requirements as the virtualization use case. However, for
 historical reasons much of the non-virtualization use case code was not
-written with these security requirements in mind.
+written with these security requirements in mind.<br>
+비 가상화 유즈케이스는 Tiny Code Generator (TCG)를 사용한 에뮬레이션을 다룹니다. 원칙적으로 비 가상화 유즈케이스와 함께 사용되는 TCG 와 디바이스 에뮬레이션 코드는 가상화 유즈케이스와 동일한 보안 요구 사항을 충족해야 합니다. 그러나 역사적인 이유로 비 가상화 유즈케이스 코드의 대부분은 이러한 보안 요구 사항을 생각하지 않고 작성되었습니다.
 
 Bugs affecting the non-virtualization use case are not considered
 security bugs at this time. Users with non-virtualization use cases must
-not rely on QEMU to provide guest isolation or any security guarantees.
+not rely on QEMU to provide guest isolation or any security guarantees.<br>이러한 비 가상화 유즈케이스에 영향을 끼치는 버그는 현재는 보안 버그로 간주되지 않습니다. 비 가상화 유즈케이스를 사용하는 사용자는 게스트 격리 또는 보안 보장 제공을 QEMU에만 의존해서는 안 됩니다.
 
 ## Architecture
 
