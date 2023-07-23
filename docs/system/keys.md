@@ -1,4 +1,5 @@
-# Keys in the graphical frontends {#GUI_keys}
+Keys in the graphical frontends[¶](#keys-in-the-graphical-frontends "Permalink to this headline")
+=================================================================================================
 
 During the graphical emulation, you can use special key combinations to
 change modes. The default key mappings are shown below, but if you use
@@ -6,39 +7,46 @@ change modes. The default key mappings are shown below, but if you use
 and if you use `-ctrl-grab` then the modifier is the right Ctrl key
 (instead of Ctrl-Alt):
 
-Ctrl-Alt-f
 
-:   Toggle full screen
 
-Ctrl-Alt-+
+Ctrl-Alt-fToggle full screen
 
-:   Enlarge the screen
 
-Ctrl-Alt\-- Shrink the screen
 
-Ctrl-Alt-u
+Ctrl-Alt-+Enlarge the screen
 
-:   Restore the screen\'s un-scaled dimensions
 
-Ctrl-Alt-n
 
-:   Switch to virtual console \'n\'. Standard console mappings are:
+Ctrl-Alt--Shrink the screen
 
-    *1*
 
-    :   Target system display
 
-    *2*
+Ctrl-Alt-uRestore the screen’s un-scaled dimensions
 
-    :   Monitor
 
-    *3*
 
-    :   Serial port
+Ctrl-Alt-nSwitch to virtual console ‘n’. Standard console mappings are:
 
-Ctrl-Alt
 
-:   Toggle mouse and keyboard grab.
+
+*1*Target system display
+
+
+
+*2*Monitor
+
+
+
+*3*Serial port
+
+
+
+
+
+Ctrl-AltToggle mouse and keyboard grab.
+
+
+
 
 In the virtual consoles, you can use Ctrl-Up, Ctrl-Down, Ctrl-PageUp and
 Ctrl-PageDown to move in the back log.
