@@ -81,31 +81,36 @@ data. Disk image files and network traffic must be protected from other
 guests unless explicitly shared between them by the user.<br>
 게스트는 때로 다른 게스트와 상호 작용하고 리소스를 공유합니다. 악의적인 게스트가 다른 게스트의 제어권을 갖게 되거나 데이터에 접근할 수 없어야 합니다. 디스크 이미지 파일과 네트워크 트래픽은 사용자가 명시적으로 공유하지 않는 한 다른 게스트로부터 보호되어야 합니다.
 
-### Principle of Least Privilege
+### Principle of Least Privilege<br>최소 권한 원칙
 
 The principle of least privilege states that each component only has
 access to the privileges necessary for its function. In the case of QEMU
 this means that each process only has access to resources belonging to
-the guest.
+the guest.<br>
+최소 권한 원칙에 따르면 각 요소는 그 기능을 위해 필요한 권한만 가질 수 있습니다. QEMU 의 경우, 이는 각 프로세스가 해당 게스트에 딸린 리소스에만 접근할 수 있다는 의미입니다.
 
 The QEMU process should not have access to any resources that are
 inaccessible to the guest. This way the guest does not gain anything by
 escaping into the QEMU process since it already has access to those same
 resources from within the guest.
+QEMU 프로세스는 게스트가 접근할 수 없는 어떠한 리소스에도 접근 권한을 가져서는 안됩니다. 이런 식으로 게스트는 QEMU 프로세스로 탈출하더라도 아무 것도 얻을 수 없습니다. 왜냐하면 게스트 안으로부터 이미 접근할 수 있었던 같은 리소스에만 접근 권한을 가지기 때문입니다.
 
 Following the principle of least privilege immediately fulfills guest
 isolation requirements. For example, guest A only has access to its own
-disk image file `a.img` and not guest B\'s disk image file `b.img`.
+disk image file `a.img` and not guest B\'s disk image file `b.img`.<br>
+최소 접근 권한 원칙을 따르면 게스트 분리 요구사항도 만족시키게 됩니다. 예를 들어 게스트 A는 자신의 디스크 이미지 파일 `a.img` 에만 접근할 수 있고 게스트 B의 디스크 이미지 파일 `b.img` 에는 접근할 수 없습니다.
 
 In reality certain resources are inaccessible to the guest but must be
 available to QEMU to perform its function. For example, host system
 calls are necessary for QEMU but are not exposed to guests. A guest that
-escapes into the QEMU process can then begin invoking host system calls.
+escapes into the QEMU process can then begin invoking host system calls.<br>
+실제로는 게스트에 접근 불가한 어떤 리소스는 QEMU에게는 사용 가능해야 그 기능을 수행할 수 있습니다. 예를 들어, QEMU는 호스트 시스템 함수를 호출할 필요가 있지만 게스트에게 노출되지는 않습니다.
 
 New features must be designed to follow the principle of least
 privilege. Should this not be possible for technical reasons, the
 security risk must be clearly documented so users are aware of the
-trade-off of enabling the feature.
+trade-off of enabling the feature.<br>
+새로운 기능은 반드시 최소 권한 원칙을 따르도록 설계되어야 합니다. 기술적인 이유로 이것이 불가능하다면, 보안 위험은 반드시 명시적으로 문서화되어 사용자들이 해당 기능을 활성화 하는데 댓가를 알 수 있어야 합니다.
 
 ### Isolation mechanisms
 
