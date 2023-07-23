@@ -26,5 +26,5 @@ jobs:
             functionality). However, we get a lot of patches, and so we have some
             guidelines about contributing on the project website:
             https://www.qemu.org/contribute/
-          lock-pr: true
-          close-pr: true
+          lock-pr: false
+          close-pr: false
