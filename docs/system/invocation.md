@@ -8,9 +8,7 @@ Invocation[¶](#invocation "Permalink to this headline")
 qemu-system-x86_64 [options] [disk_image]
 ```
 
-disk\_image is a raw hard disk image for IDE hard disk 0. Some targets do
-not need a disk image.
-
+disk\_image is a raw hard disk image for IDE hard disk 0. Some targets do not need a disk image.<br>
 `disk_image` 는 하드 디스크 이미지로 IDE 0 번을 위한 것이다. 어떤 타겟은 디스크 이미지가 필요하지 않다.
 
 
@@ -20,27 +18,21 @@ Standard options[¶](#hxtool-0 "Permalink to this headline")
 
 
 `-h`
-Display help and exit
-
-도움말을 보여 주고 마친다.
+Display help and exit<br>도움말을 보여 주고 마친다.
 
 
 `-version`
-Display version information and exit
-
-버전 정보를 보여 주고 마친다.
+Display version information and exit<br>버전 정보를 보여 주고 마친다.
 
 `-machine [type=]name[,prop=value[,...]]`
 Select the emulated machine by name. Use `-machine help` to list
-available machines.
-
+available machines.<br>
 `name` 으로 에뮬레이션 머신을 선택한다. 사용 가능한 머신을 나열하려면 `-machine help` 를 사용한다.
 
 For architectures which aim to support live migration compatibility
 across releases, each release will introduce a new versioned machine
 type. For example, the 2.8.0 release introduced machine types
-“pc-i440fx-2.8” and “pc-q35-2.8” for the x86\_64/i686 architectures.
-
+“pc-i440fx-2.8” and “pc-q35-2.8” for the x86\_64/i686 architectures.<br>
 배포판 사이의 라이브 마이그레이션 지원 호환성을 지원하기 위한 아키텍처에 대해서는
 각 배포판이 새로운 버전 관리된 시스템 타입을 도입할 것이다.
 예를 들어, 2.8.0 배포판은 x86_64/i686 아키텍처를 위한 “pc-i440fx-2.8” 과 “pc-q35-2.8” 시스템 타입을 처음으로 추가했다.
@@ -49,12 +41,10 @@ To allow live migration of guests from QEMU version 2.8.0, to QEMU
 version 2.9.0, the 2.9.0 version must support the “pc-i440fx-2.8”
 and “pc-q35-2.8” machines too. To allow users live migrating VMs to
 skip multiple intermediate releases when upgrading, new releases of
-QEMU will support machine types from many previous versions.
-
+QEMU will support machine types from many previous versions.<br>
 게스트의 라이브 마이그레이션을 위해서는, QEMU 2.8.0 으로부터 QEMU 2.9.0 으로의 경우, 2.9.0 판은 반드시 “pc-i440fx-2.8” 과 “pc-q35-2.8” 시스템도 지원해야 한다. 사용자가 업그레이드 할 때 가상 머신을 여러 중간 배포판을 거치지 않고 라이브 마이그레이션할 수 있도록, QEMU 의 새로운 배포판은 많은 이전 버전의 시스템 타입을 지원할 것이다.
 
-Supported machine properties are:
-
+Supported machine properties are:<br>
 지원되는 시스템 속성은 다음과 같다:
 
 `accel=accels1[:accels2[:...]]`
@@ -62,65 +52,55 @@ This is used to enable an accelerator. Depending on the target
 architecture, `kvm`, `xen`, `hax`, `hvf`, `nvmm`, `whpx` or `tcg` can be available.
 By default, `tcg` is used. If there is more than one accelerator
 specified, the next one is used if the previous one fails to
-initialize.
-
+initialize.<br>
 이것은 가속기를 활성화 하기 위해 사용된다. 타겟 아키텍처에 따라, `kvm`, `xen`, `hax`, `hvf`, `nvmm`, `whpx` 또는 `tcg` 를 선택할 수 있다. 기본으로는 `tcg` 가 사용된다. 만약 하나 이상의 가속기가 지정되어 있다면, 이전 것이 초기화에 실패하면 다음 것이 사용된다.
 
 `vmport=on|off|auto`
 Enables emulation of VMWare IO port, for vmmouse etc. auto says
 to select the value based on accel. For accel=xen the default is
-off otherwise the default is on.
-
+off otherwise the default is on.<br>
 VMWare IO 포트 에뮬레이션을 vmmouse 등을 위해 활성화한다. `auto` 는 `accel`에 따른 값을 선택한다. `accel=xen`이면 기본값은 `off`이고, 그 외에는 기본값 `on`이다.
 
 `dump-guest-core=on|off`
-Include guest memory in a core dump. The default is `on`.
-
+Include guest memory in a core dump. The default is `on`.<br>
 게스트 메모를 core dump 에 포함한다. 기본 `on`.
 
 `mem-merge=on|off`
 Enables or disables memory merge support. This feature, when
 supported by the host, de-duplicates identical memory pages
-among VMs instances (enabled by default).
-
+among VMs instances (enabled by default).<br>
 메모리 병합 지원을 활성화 또는 비활성화 한다. 이 기능은 호스트에서 지원되면, VM 인스턴스들 사이에서 동일한 메모리 페이지를 제거한다. (기본으로 활성화)
 
 `aes-key-wrap=on|off`
 Enables or disables AES key wrapping support on s390-ccw hosts.
 This feature controls whether AES wrapping keys will be created
 to allow execution of AES cryptographic functions. The default
-is `on`.
-
+is `on`.<br>
 s390-ccw 호스트 상에서 AES 키 래핑 지원을 활성화 또는 비활성화 한다. 이 기능은 AES wrapping 키가 AES 암호화 함수를 실행할 수 있도록 생성되는 것을 제어한다. 기본값은 `on`.
 
 `dea-key-wrap=on|off`
 Enables or disables DEA key wrapping support on s390-ccw hosts.
 This feature controls whether DEA wrapping keys will be created
 to allow execution of DEA cryptographic functions. The default
-is `on`.
-
+is `on`.<br>
 s390-ccw 호스트 상에서 DEA 키 래핑 지원을 활성화 또는 비활성화 한다. 이 기능은 DES 래핑 키가 DES 암호화 함수를 실행할 수 있도록 생성되는 것을 제어한다. 기본값은 `on`.
 
 `nvdimm=on|off`
-Enables or disables NVDIMM support. The default is `off`.
-
+Enables or disables NVDIMM support. The default is `off`.<br>
 NVDIMM 지원을 활성화 또는 비활성화한다. 기본 `off`.
 
 `memory-encryption=`
-Memory encryption object to use. The default is `none`.
-
+Memory encryption object to use. The default is `none`.<br>
 메모리 암호화 객체를 지정한다. 기본값은 `none`.
 
 `hmat=on|off`
 Enables or disables ACPI Heterogeneous Memory Attribute Table
-(HMAT) support. The default is `off`.
-
+(HMAT) support. The default is `off`.<br>
 ACPI 헤테로지니어스 메모리 속성표 (HMAT) 지원을 활성화 또는 비활성화한다. 기본값은 `off`.
 
 `memory-backend='id'`
 An alternative to legacy `-mem-path` and `mem-prealloc` options.
-Allows to use a memory backend as main RAM.
-
+Allows to use a memory backend as main RAM.<br>
 이전 `-mem-path` 와 `mem-prealloc` 옵션의 대안이다. 메모리 백엔드를 메인 RAM으로 사용할 수 있게 한다.
 
 For example:<br>
@@ -162,12 +142,10 @@ For example:<br>
 
 
 `cxl-fmw.0.targets.0=firsttarget,cxl-fmw.0.targets.1=secondtarget,cxl-fmw.0.size=size[,cxl-fmw.0.interleave-granularity=granularity]`
-Define a CXL Fixed Memory Window (CFMW).
-
+Define a CXL Fixed Memory Window (CFMW).<br>
 CXL 고정 메모리 윈도우 (CFMW) 를 정의한다.
 
-Described in the CXL 2.0 ECN: CEDT CFMWS & QTG \_DSM.
-
+Described in the CXL 2.0 ECN: CEDT CFMWS & QTG \_DSM.<br>
 CXL 2.0 ECN 에 설명되어 있다: CEDT CFMWS & QTG \_DSM.
 
 They are regions of Host Physical Addresses (HPA) on a system which
@@ -175,35 +153,32 @@ may be interleaved across one or more CXL host bridges. The system
 software will assign particular devices into these windows and
 configure the downstream Host-managed Device Memory (HDM) decoders
 in root ports, switch ports and devices appropriately to meet the
-interleave requirements before enabling the memory devices.
-
-시스템상 호스트 물리 주소 (HPA) 의 영역으로 하나 이상의 CXL 호스트 브릿지를 통해 분산 할당될 수 있다. 시스템 소프트웨어는 특정 장치를 이 윈도우에 할당하고, 루트 포트, 스위치 포트, 장치의 아랫단 호스트 관리 장치 메모리 (HDM) 디코더를 적절하게 구성하여 분산 할당 요구 사항을 충족시킨 후 메모리 장치를 활성화 시킨다.
+interleave requirements before enabling the memory devices.<br>
+시스템 상 호스트 물리 주소 (HPA) 의 영역으로 하나 이상의 CXL 호스트 브릿지를 통해 분산 할당될 수 있다. 시스템 소프트웨어는 특정 장치를 이 윈도우에 할당하고, 루트 포트, 스위치 포트, 장치의 아랫단 호스트 관리 장치 메모리 (HDM) 디코더를 적절하게 구성하여 분산 할당 요구 사항을 충족시킨 후 메모리 장치를 활성화 시킨다.
 
 `targets.X=target`
 provides the mapping to CXL host bridges
 which may be identified by the id provided in the `-device` entry.
 Multiple entries are needed to specify all the targets when
 the fixed memory window represents interleaved memory. X is the
-target index from 0.
-
+target index from 0.<br>
 CXL 호스트 브릿지에 매핑을 제공한다. 이는 `-device` 항목에서 제공된 id 로 식별하는 것도 가능하다. 고정 메모리 윈도우가 분산 할당된 메모리를 나타낼 때 모든 타겟을 지정하기 위해 여러 항목이 필요하다. X 는 0부터 시작하는 타겟 인덱스이다.
 
 `size=size`
 sets the size of the CFMW. This must be a multiple of
 256MiB. The region will be aligned to 256MiB but the location is
-platform and configuration dependent.
-
+platform and configuration dependent.<br>
 CFMW 의 크기를 정한다. 이는 반드시 256MiB 의 배수여야 한다. 영역은 256MiB 로 정렬되지만 위치는 플랫폼과 구성에 따라 다르다.
 
 `interleave-granularity=granularity`
 sets the granularity of
 interleave. Default 256KiB. Only 256KiB, 512KiB, 1024KiB, 2048KiB
-4096KiB, 8192KiB and 16384KiB granularities supported.
-
+4096KiB, 8192KiB and 16384KiB granularities supported.<br>
 분산 할당 영역에서 처리 단위 크기를 정한다. 기본값은 256KiB 이다. 256KiB, 512KiB, 1024KiB, 2048KiB 4096KiB, 8192KiB, 16384KiB 만 지원된다.
 
 Example:<br>
 사례:
+
 
 ```
 -machine cxl-fmw.0.targets.0=cxl.0,cxl-fmw.0.targets.1=cxl.1,cxl-fmw.0.size=128G,cxl-fmw.0.interleave-granularity=512k
@@ -211,56 +186,53 @@ Example:<br>
 ```
 
 
-
-
-
 `sgx-epc.0.memdev=@var{memid},sgx-epc.0.node=@var{numaid}`
-Define an SGX EPC section.
-
-
+Define an SGX EPC section.<br>
+SGX EPC 섹션을 정의한다.
 
 `-cpu model`
 Select CPU model (`-cpu help` for list and additional feature
-selection)
+selection)<br>
+CPU 모델을 선택한다 (`-cpu help` 를 사용하면 추가 기능의 목록을 표시한다)
 
-
+`-cpu host`
 
 `-accel name[,prop=value[,...]]`
 This is used to enable an accelerator. Depending on the target
 architecture, kvm, xen, hax, hvf, nvmm, whpx or tcg can be available. By
 default, tcg is used. If there is more than one accelerator
 specified, the next one is used if the previous one fails to
-initialize.
+initialize.<br>
+가속기를 활성화 하기 위해 사용한다. 타겟 아키텍처에 따라, `kvm`, `xen`, `hax`, `hvf`, `nvmm`, `whpx`, `tcg` 가 사용 가능하다. 기본적으로 `tcg` 가 사용된다. 여러 가속기가 지정된 경우, 이전 가속기가 초기화에 실패하면 다음 가속기가 사용된다.
 
-
+`-accel tcg[,thread=on|off][,tcg-threads=n]`
 
 `igd-passthru=on|off`
 When Xen is in use, this option controls whether Intel
 integrated graphics devices can be passed through to the guest
-(default=off)
-
-
+(default=off)<br>
+xen 이 사용중이면, 이 옵션은 인텔 통합 그래픽 장치가 게스트로 직결될 수 있는지 여부를 제어한다 (기본값=off)
 
 `kernel-irqchip=on|off|split`
 Controls KVM in-kernel irqchip support. The default is full
 acceleration of the interrupt controllers. On x86, split irqchip
 reduces the kernel attack surface, at a performance cost for
 non-MSI interrupts. Disabling the in-kernel irqchip completely
-is not recommended except for debugging purposes.
-
+is not recommended except for debugging purposes.<br>
+KVM 의 커널 내장 irqchip 지원을 제어한다. 기본은 인터럽트 콘트롤러를 전면적으로 가속하는 것이다. x86상에서 irqchip split 은 커널 공격 면적을 줄여주지만, 비 MSI 인터럽트 성능은 저하된다. 커널 내장 irqchip 을 완전히 비활성화 하는것은 디버깅 목적 이외에는 추천하지 않는다.
 
 
 `kvm-shadow-mem=size`
-Defines the size of the KVM shadow MMU.
-
+Defines the size of the KVM shadow MMU.<br>
+KVM shadow MMU 의 크기를 정의한다.
 
 
 `one-insn-per-tb=on|off`
 Makes the TCG accelerator put only one guest instruction into
 each translation block. This slows down emulation a lot, but
 can be useful in some situations, such as when trying to analyse
-the logs produced by the `-d` option.
-
+the logs produced by the `-d` option.<br>
+TCG 가속기의 각 변환 블럭에 하나의 게스트 인스트럭션씩만 넣도록 한다. 이렇게 하면 에뮬레이션이 많이 느려지지만 어떤 상황에서는 유용한데, 예를 들어 `-d` 옵션으로 생성한 로그를 분석하려고 하는 경우 등이다.
 
 
 `split-wx=on|off`
