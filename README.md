@@ -33,6 +33,9 @@ QEMU 원래의 저장소는 https://www.qemu.org/contribute/ 참고 바랍니다
 
 * docs/system/introduction.md
 * docs/system/device-emulation.md
+* docs/system/keys.md
+* docs/system/mux-chardev.md
+* docs/system/security.md
 
 ## 참고문헌
 
