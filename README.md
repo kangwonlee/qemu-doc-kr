@@ -33,3 +33,10 @@ QEMU 원래의 저장소는 https://www.qemu.org/contribute/ 참고 바랍니다
 
 * docs/system/introduction.md
 * docs/system/device-emulation.md
+
+## 참고문헌
+
+* https://www.qemu.org/docs/master/
+* 최동욱 외, (실전 클라우드) 가상화 구축 기술 : QEMU KVM Xen에서 클라우드스택까지 가상화 구축과 관리의 모든 이야기, 한빛미디어, ISBN 9788979149616, 2012.
+* Github Copilot
+* Google Bard
